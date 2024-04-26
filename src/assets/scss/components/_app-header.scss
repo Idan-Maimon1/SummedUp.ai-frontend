@@ -1,1 +1,19 @@
-.app-header {}
+.app-header {
+    height: 10vh;
+    width: 100vw;
+
+    .logo-cont {
+        display: flex;
+        align-items: center;
+        width: max-content;
+        height: 100%;
+        padding-right: 18px;
+        border-right: 2px solid black;
+        border-bottom: 2px solid black;
+        border-bottom-right-radius: 16px;
+
+        img {
+            height: 45px;
+        }
+    }
+}
