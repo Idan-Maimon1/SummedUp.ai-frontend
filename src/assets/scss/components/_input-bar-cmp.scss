@@ -1,5 +1,5 @@
 .input-bar-cont {
-    margin: auto;
+    margin: 2em auto;
     overflow: hidden;
     width: 260px;
     height: 30px;
@@ -9,6 +9,7 @@
     border-radius: 28px;
 
     .search-icon-cont {
+        all: unset;
         display: flex;
         justify-content: center;
         align-items: center;
