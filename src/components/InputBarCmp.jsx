@@ -10,12 +10,19 @@ export default class InputBarCmp extends Component {
         this.setState({ inputUrl: event.target.value })
     }
 
-    extractYouTubeVideoId = () => {
+    extractYouTubeId = () => {
         const { inputUrl } = this.state
-        const youtubeRegex = /^(?:https?:\/\/)?(?:www\.)?youtube\.com\/watch\?v=([a-zA-Z0-9_-]{11})/
-        const match = inputUrl.match(youtubeRegex)
-        if (match) {
-            const videoId = match[1]
+
+        var index = inputUrl.indexOf("v=");
+
+        if (index !== -1) {
+            var videoId = inputUrl.substring(index + 2);
+
+            var ampersandIndex = videoId.indexOf("&");
+            if (ampersandIndex !== -1) {
+                videoId = videoId.substring(0, ampersandIndex);
+            }
+
             this.props.handleVideoIdChange(videoId)
         } else {
             this.setState({ videoId: null, inputUrl: '' })
@@ -34,7 +41,7 @@ export default class InputBarCmp extends Component {
                     value={inputUrl}
                     onChange={this.handleInputChange}
                 />
-                <button className="search-icon-cont" onClick={this.extractYouTubeVideoId}>
+                <button className="search-icon-cont" onClick={this.extractYouTubeId}>
                     <img src={SearchIcon} alt="" />
                 </button>
             </section>
