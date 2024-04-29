@@ -23,6 +23,8 @@ export default class InputBarCmp extends Component {
                 videoId = videoId.substring(0, ampersandIndex);
             }
 
+            if (videoId.length > 11) videoId = videoId.substring(0, 11)
+
             this.props.handleVideoIdChange(videoId)
         } else {
             this.setState({ videoId: null, inputUrl: '' })
