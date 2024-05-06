@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import SearchIcon from '../assets/imgs/search-icon.svg'
+import {mediaService} from '../services/mediaService'
 
 export default class InputBarCmp extends Component {
     state = {
